@@ -6,6 +6,27 @@ Second Brain brings a personal paper library, source-grounded Q&A, lightweight b
 
 [Open the HTML getting-started guide](README.html)
 
+## Screenshots
+
+<table>
+<tr>
+<td><img src="Screenshot/Screenshot%202026-10-02%20010954.png" width="480" alt="Second Brain home dashboard"><br><sub>Home dashboard</sub></td>
+<td><img src="Screenshot/Screenshot%202026-10-02%20011002.png" width="480" alt="Research library and filters"><br><sub>Research library</sub></td>
+</tr>
+<tr>
+<td><img src="Screenshot/Screenshot%202026-10-02%20011009.png" width="480" alt="Manuscript page builder"><br><sub>Page builder</sub></td>
+<td><img src="Screenshot/Screenshot%202026-10-02%20011016.png" width="480" alt="Manuscript canvas and page preview"><br><sub>Writing canvas and preview</sub></td>
+</tr>
+<tr>
+<td><img src="Screenshot/Screenshot%202026-10-02%20011025.png" width="480" alt="Publication and affiliation analysis charts"><br><sub>Bibliometric overview</sub></td>
+<td><img src="Screenshot/Screenshot%202026-10-02%20011032.png" width="480" alt="Ask questions across the research library"><br><sub>Ask the research library</sub></td>
+</tr>
+<tr>
+<td><img src="Screenshot/Screenshot%202026-10-02%20011038.png" width="480" alt="Editable bibliographic metadata table"><br><sub>Metadata review</sub></td>
+<td></td>
+</tr>
+</table>
+
 ## What it does
 
 - Imports PDF, DOCX, XLSX, PPTX, PNG, JPG, WEBP, TIFF, TXT, and CSV sources.
