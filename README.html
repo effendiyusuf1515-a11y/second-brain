@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>Second Brain | Getting started</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --page: #f5f3ed;
+      --surface: #fffefa;
+      --ink: #263238;
+      --muted: #667478;
+      --line: #dddcd3;
+      --accent: #a94e36;
+      --accent-soft: #f1e1d9;
+      --code: #ecebe4;
+      font-family: "Segoe UI", Arial, sans-serif;
+      line-height: 1.65;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --page: #171e22;
+        --surface: #20292d;
+        --ink: #eef0e9;
+        --muted: #a7b2ae;
+        --line: #394549;
+        --accent: #f08a69;
+        --accent-soft: #392b27;
+        --code: #263236;
+      }
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--page); color: var(--ink); }
+    header, main, footer { width: min(100% - 36px, 920px); margin-inline: auto; }
+    header { padding: 54px 0 34px; border-bottom: 1px solid var(--line); }
+    .eyebrow { color: var(--accent); font-size: .76rem; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; }
+    h1, h2 { font-family: Georgia, "Times New Roman", serif; line-height: 1.16; }
+    h1 { margin: 12px 0; font-size: clamp(2.4rem, 7vw, 4.4rem); letter-spacing: -.035em; }
+    h2 { margin: 0 0 14px; font-size: 1.8rem; }
+    p { margin: .6rem 0 1rem; }
+    .intro { max-width: 700px; color: var(--muted); font-size: 1.08rem; }
+    nav { display: flex; flex-wrap: wrap; gap: 10px 22px; margin-top: 24px; }
+    a { color: var(--accent); text-underline-offset: 3px; }
+    nav a { font-size: .9rem; font-weight: 600; }
+    main { padding: 12px 0 40px; }
+    section { padding: 34px 0; border-bottom: 1px solid var(--line); }
+    .step { display: grid; grid-template-columns: 42px minmax(0, 1fr); gap: 16px; }
+    .number { color: var(--accent); font-family: Georgia, serif; font-size: 1.45rem; }
+    .muted { color: var(--muted); }
+    .note { margin: 16px 0; padding: 14px 16px; border-left: 3px solid var(--accent); background: var(--accent-soft); }
+    code, pre { font-family: Consolas, "Courier New", monospace; }
+    code { padding: .12em .32em; background: var(--code); border-radius: 3px; }
+    pre { overflow-x: auto; margin: 14px 0; padding: 16px; background: var(--code); border-radius: 5px; line-height: 1.5; }
+    pre code { padding: 0; background: transparent; }
+    ul { padding-left: 1.25rem; }
+    li { margin: .45rem 0; }
+    footer { padding: 18px 0 38px; color: var(--muted); font-size: .84rem; }
+    @media (max-width: 560px) {
+      header { padding-top: 34px; }
+      h1 { font-size: 2.55rem; }
+      section { padding: 26px 0; }
+      .step { grid-template-columns: 30px minmax(0, 1fr); gap: 10px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="eyebrow">Second Brain / Local research workspace</div>
+    <h1>Second Brain</h1>
+    <p class="intro">A local-first workspace for exploring research papers, asking source-grounded questions, and building an editable manuscript draft with your own Ollama models.</p>
+    <nav aria-label="Page sections">
+      <a href="#quick-start">Quick start</a>
+      <a href="#workflow">Workflow</a>
+      <a href="#models">Models</a>
+      <a href="#limitations">Limitations</a>
+      <a href="#privacy">Privacy</a>
+    </nav>
+  </header>
+  <main>
+    <section id="quick-start">
+      <div class="step"><div class="number">01</div><div>
+        <h2>Run it locally</h2>
+        <p>Install Python 3.12 and Ollama. In PowerShell, open the <code>PDF READER</code> folder and run:</p>
+        <pre><code>py -3.12 -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install -r requirements.txt
+python -m streamlit run app.py</code></pre>
+        <p>Open <a href="http://localhost:8501">http://localhost:8501</a>. The app uses <code>http://localhost:11434</code> for Ollama by default.</p>
+      </div></div>
+    </section>
+    <section id="workflow">
+      <div class="step"><div class="number">02</div><div>
+        <h2>Build your library</h2>
+        <p>Open <strong>Library</strong> and import the local <code>Referensi/</code> folder or select individual PDF, DOCX, XLSX, PPTX, image, TXT, and CSV files. Sources and extracted passages are indexed in local SQLite.</p>
+        <p>Search paper text, titles, and author keywords. Filter by publication year and affiliation country. Review publication trends, themes, country counts, and the affiliation map. Correct detected metadata in the editable table.</p>
+        <div class="note"><strong>Affiliation location is not experiment location.</strong> Map pins use country centroids from detected author affiliations. Verify detected countries before analysis.</div>
+      </div></div>
+      <div class="step"><div class="number">03</div><div>
+        <h2>Ask and draft</h2>
+        <ul>
+          <li><strong>Home:</strong> ask a question across the local library; answers include source file and page labels.</li>
+          <li><strong>Ask library:</strong> explore evidence across indexed papers and inspect the cited passages.</li>
+          <li><strong>Page builder:</strong> choose a section, add your research question and notes, then draft from relevant sources.</li>
+          <li>Use <strong>Apply changes</strong> to save edited text and update the page preview. Use <strong>Paraphrase with Qwen</strong> or ask Qwen about the active section. Drafts autosave locally.</li>
+          <li>Export the manuscript to DOCX when you need a portable copy.</li>
+        </ul>
+        <p class="muted">Qwen paraphrasing should preserve citations, but compare generated wording with the cited source before use.</p>
+      </div></div>
+    </section>
+    <section id="models">
+      <div class="step"><div class="number">04</div><div>
+        <h2>Choose local models</h2>
+        <p>Set model names in the sidebar to match <code>ollama list</code>. Example downloads:</p>
+        <pre><code>ollama pull qwen3:8b
+ollama pull qwen3-vl:8b
+ollama pull nomic-embed-text</code></pre>
+        <ul>
+          <li><code>qwen3:8b</code> handles Q&amp;A and writing.</li>
+          <li><code>qwen3-vl:8b</code> analyzes images and selected scanned PDF pages.</li>
+          <li><code>nomic-embed-text</code> enables semantic search. Without it, retrieval falls back to keyword search.</li>
+        </ul>
+        <p>Bulk PDF import is text-first. To analyze scans, enable the Qwen-VL option; automatic visual analysis is limited to the first two pages of each PDF.</p>
+      </div></div>
+    </section>
+    <section id="limitations">
+      <div class="step"><div class="number">05</div><div>
+        <h2>Limitations to know</h2>
+        <ul>
+          <li>Title, year, keywords, and country are heuristically extracted from the first page. Verify and correct them before relying on bibliometric summaries.</li>
+          <li>Country counts are not a full co-authorship or collaboration-network analysis.</li>
+          <li>Spreadsheet and presentation charts are indexed from underlying series data; visual styling and annotations may be lost.</li>
+          <li>Citations identify source file and page/sheet/slide, but do not yet produce a full APA/IEEE bibliography or DOI metadata.</li>
+          <li>The preview is not a fully paginated WYSIWYG Word editor.</li>
+          <li>Models can produce incorrect claims. Researchers must verify evidence, methods, results, citations, and novelty.</li>
+        </ul>
+      </div></div>
+    </section>
+    <section id="privacy">
+      <div class="step"><div class="number">06</div><div>
+        <h2>Privacy and local data</h2>
+        <p>Imported papers, extracted text, metadata, indexes, and drafts are stored under <code>data/</code>. Model requests go to the configured Ollama address. Use a local address if documents must not leave this computer.</p>
+        <p>The affiliation map loads basemap tiles from Carto; paper text is not sent to Carto, but the provider receives tile requests. The <code>data/</code> and <code>Referensi/</code> folders are excluded by <code>.gitignore</code>.</p>
+        <p>Run tests with <code>python -m unittest discover -s tests -v</code>.</p>
+      </div></div>
+    </section>
+  </main>
+  <footer>Second Brain is a research-writing prototype. Review every claim and citation before publication.</footer>
+</body>
+</html>
